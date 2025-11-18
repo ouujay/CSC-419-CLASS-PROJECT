@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --grid-template-columns-fluid-auto: repeat(auto-fit, minmax(auto, 1fr));
+  --grid-template-columns-fluid: repeat(auto-fit, minmax(150px, 1fr));
+  --grid-template-columns-fluid-xs: repeat(auto-fit, minmax(100px, 1fr));
+  --grid-template-columns-fluid-sm: repeat(auto-fit, minmax(250px, 1fr));
+  --grid-template-columns-fluid-lg: repeat(auto-fit, minmax(350px, 1fr));
+  --grid-template-columns-fluid-xl: repeat(auto-fit, minmax(450px, 1fr));
+  --grid-template-columns-fluid-table: repeat(auto-fill, minmax(auto, 1fr));
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-warning: var(--warning);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-background-muted: var(--background-muted);
+  --color-foreground-muted: var(--foreground-muted);
+  --font-sora: var(--font-sora), "sans-serif";
+  --font-cardo: var(--font-cardo), "sans";
+}
+
+:root {
+  --background: hsl(220, 50%, 95%);
+  --foreground: hsl(220, 50%, 5%);
+  --background-muted: hsl(220, 50%, 92%);
+  --foreground-muted: hsl(220, 50%, 15%);
+  --primary: hsl(175, 100%, 30%);
+  --primary-foreground: hsl(175, 50%, 95%);
+  --secondary: hsl(175, 100%, 30%);
+  --secondary-foreground: hsl(175, 50%, 95%);
+  --accent: hsl(190, 50%, 30%);
+  --accent-foreground: hsl(190, 50%, 95%);
+  --destructive: hsl(355, 50%, 30%);
+  --destructive-foreground: hsl(355, 50%, 95%);
+  --border: hsl(175, 100%, 30%);
+  --input: hsl(175, 50%, 70%);
+  --ring: hsl(175, 100%, 30%);
+  --sidebar: hsl(220, 50%, 89%);
+  --sidebar-foreground: hsl(220, 50%, 5%);
+  --sidebar-primary: hsl(175, 100%, 30%);
+  --sidebar-primary-foreground: hsl(355, 50%, 95%);
+  --sidebar-accent: hsl(190, 50%, 30%);
+  --sidebar-accent-foreground: hsl(190, 50%, 95%);
+  --sidebar-border: hsl(191, 100%, 18%);
+  --warning: hsl(56, 63%, 36%);
+  --sidebar-ring: hsl(175, 100%, 30%);
+  --popover: hsl(220, 50%, 95%);
+  --popover-foreground: hsl(220, 50%, 5%);
+}
+.dark {
+  --background: hsl(220, 50%, 10%);
+  --foreground: hsl(220, 50%, 95%);
+  --background-muted: hsl(220, 50%, 5%);
+  --foreground-muted: hsl(220, 50%, 90%);
+  --primary: hsl(175, 100%, 30%);
+  --primary-foreground: hsl(175, 50%, 95%);
+  --secondary: hsl(175, 100%, 30%);
+  --secondary-foreground: hsl(175, 50%, 95%);
+  --accent: hsl(190, 50%, 30%);
+  --accent-foreground: hsl(190, 50%, 95%);
+  --destructive: hsl(355, 50%, 30%);
+  --warning: hsl(56, 63%, 36%);
+  --destructive-foreground: hsl(355, 50%, 95%);
+  --border: hsl(190, 50%, 30%);
+  --input: hsl(190, 50%, 30%);
+  --ring: hsl(175, 100%, 30%);
+  --sidebar: hsl(220, 50%, 2%);
+  --sidebar-foreground: hsl(355, 50%, 95%);
+  --sidebar-primary: hsl(175, 100%, 30%);
+  --sidebar-primary-foreground: hsl(355, 50%, 95%);
+  --sidebar-accent: hsl(190, 50%, 30%);
+  --sidebar-accent-foreground: hsl(190, 50%, 95%);
+  --sidebar-border: hsl(191, 100%, 18%);
+  --sidebar-ring: hsl(175, 100%, 30%);
+  --popover: hsl(220, 50%, 15%);
+  --popover-foreground: hsl(220, 50%, 95%);
+}
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  a,
+  input,
+  button,
+  label {
+    @apply font-sora;
+  }
+
+  p {
+    @apply font-sora font-extralight;
+  }
+
+  h1 {
+    @apply font-cardo text-4xl sm:text-5xl md:text-6xl;
+  }
+
+  h2 {
+    @apply font-cardo text-3xl sm:text-4xl md:text-5xl;
+  }
+
+  h3 {
+    @apply font-cardo text-2xl sm:text-3xl md:text-4xl;
+  }
+
+  h4 {
+    @apply font-cardo text-xl sm:text-2xl md:text-3xl;
+  }
+
+  h5 {
+    @apply font-cardo text-lg sm:text-xl md:text-2xl;
+  }
+
+  h6 {
+    @apply font-cardo text-base sm:text-lg md:text-xl;
+  }
+
+  th {
+    @apply border-1 py-1 px-2 text-left font-normal bg-background text-foreground  text-xs md:text-sm;
+  }
+
+  td {
+    @apply border-1 py-1 px-2 text-left font-light  text-xs md:text-sm;
+  }
+
+  /* tr {
+    @apply bg-accent/25;
+  } */
+
+  table {
+    @apply border;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+/* Customize scrollbar for webkit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-accent/25;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent rounded-full hover:bg-accent-foreground/50;
+}
